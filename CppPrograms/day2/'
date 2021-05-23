@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+
+void display(){
+
+	cout<<"I am in displayy!!!"<<endl;
+
+}
+int main(){
+	cout<<"start...."<<endl;
+	display();
+	cout<<"end...."<<endl;
+return 0;
+}
