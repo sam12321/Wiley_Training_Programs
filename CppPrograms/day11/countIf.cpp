@@ -1,5 +1,5 @@
-// Count Function
-// counts the number of occurences of a element
+// Count_if Function
+// // counts occurences according to the function
 
 #include<iostream>
 #include<algorithm>
@@ -34,9 +34,22 @@ struct Data
 	return(flag==0);
 	}
 
+	int countif(vector<Data>::iterator it,vector<Data>::iterator it2,auto func)
+{
+	int count=0;
+	while(it!=it2)
+	{
+		if(func(*it))
+			count++;
+		it++;
+	}
+	return count;
+}
+
+
 bool fn(Data &obj)
 {
-return(obj.marks>0);
+return(obj.marks>0&&obj.id>2);
 }
 
 
@@ -52,8 +65,10 @@ int main()
 	vector<Data>::iterator it=nums.begin();
 	vector<Data>::iterator it2=nums.end();
 	
-	int res= count(it,it2,Data(1,10));
+	//int res= count_if(it,it2,fn);
+	int res=countif(it,it2,fn);
 	cout<<res<<endl;
 
 return 0;
+
 }

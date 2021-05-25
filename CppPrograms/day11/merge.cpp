@@ -1,4 +1,3 @@
-// Count Function
 
 #include<iostream>
 #include<algorithm>
@@ -14,45 +13,47 @@ struct Data
 		this->marks=marks;
 	}
 
+	Data(){
+	id=0;
+	marks=0;
+	}
+
 	bool operator==(const Data &d)
 	{
 		return(this->id==d.id && this->marks==d.marks);
 	}
 
+	void operator=(const Data &d)
+	{
+		this->id=d.id;
+		this->marks=d.marks;
+	}
+	
 };
 
-
-	bool allof(vector<Data>::iterator it,vector<Data>::iterator it2,auto func)
-	{
-	int flag=0;
-	while(it!=it2){
-	if(!func(*it))
-	  break;
-	it++;
-	}
-	return(flag==0);
-	}
-
-bool fn(Data &obj)
-{
-return(obj.marks>0);
+ostream& operator<<(ostream &out,vector<Data> &vec){
+for(Data d:vec)
+	cout<<d.id<<","<<d.marks<<endl;
+return out;
 }
-
 
 int main()
 {
 	vector<Data> nums;
 	nums.push_back(Data(1,10));
 	nums.push_back(Data(2,20));
-	nums.push_back(Data(1,10));
+	nums.push_back(Data(3,30));
 	nums.push_back(Data(4,40));
 	nums.push_back(Data(5,50));
-
-	vector<Data>::iterator it=nums.begin();
-	vector<Data>::iterator it2=nums.end();
 	
-	int res= count(it,it2,Data(1,10));
-	cout<<res<<endl;
+
+	int a1[5]={1,2,3,4,5};
+	int a2[5]={2,5,7,8,9};
+	int a3[5];
+
+	merge(a1,a1+5,a2,a2+5,a3);
+
+	cout<<a1<<endl;
 
 return 0;
 
