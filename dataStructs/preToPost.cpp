@@ -1,4 +1,4 @@
-// infix to postfix using stack
+// prefix to postfix using stack
 
 #include<iostream>
 #include<string>
@@ -49,7 +49,9 @@ else
 
 int main()
 {
+//string str="++a*bcd";
 string str="++a*/bcd/ef";
+
 Op<string> obj;
 
 char c[2]={'\0','\0'};
